@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { response } from 'express';
+import prismaClient from '../prisma/index';
 /*
     * Receber o código code(string) ✔️
     * Recupear o acess_token no github ✔️
-    * Verificar se o usuário existe no DB
-    * ---Sim = gera um token
+    * Verificar se o usuário existe no DB ✔️
+    * ---Sim = gera um token 
     * ---Não = cria no DB , gera um token
     * Retornar o token com as infos do user
 */
@@ -35,6 +35,22 @@ class AuthenticateUserService {
                 authorization: `Bearer ${accessTokenResponse.access_token}`
             }
         });
+        const { login, id , avatar_url, name } = response.data;
+        let user = await prismaClient.user.findFirst({
+            where: {
+                github_id : id
+            }
+        })
+        if (!user) {
+           user = await prismaClient.user.create({
+                data:{
+                    github_id: id,
+                    login,
+                    avatar_url,
+                    name,
+                }
+            })
+        }
         return response.data;
     }
 }

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { response } from 'express';
 /*
-    * Receber o código code(string)
-    * Recupear o acess_token no github
+    * Receber o código code(string) ✔️
+    * Recupear o acess_token no github ✔️
     * Verificar se o usuário existe no DB
     * ---Sim = gera um token
     * ---Não = cria no DB , gera um token

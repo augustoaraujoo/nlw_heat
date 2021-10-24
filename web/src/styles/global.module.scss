@@ -1,0 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+body{
+    color: #e1e1e6;
+    background: #121214;
+}
+.contentWrapper{
+   max-width: 1200px;
+   height: 100vh;
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: 1fr 453px;
+   column-gap: 120px;
+   position: relative;
+}

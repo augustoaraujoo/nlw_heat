@@ -9,7 +9,7 @@ export function App() {
   const { user } = useContext(AuthContext);
   
   return (
-    <main className={Styles.contentWrapper}>
+    <main className={`${Styles.contentWrapper} ${!!user ? Styles.contentSigned : ''}`}>
       <MessageList/>
       { !!user ? <SendMessageForm/> : <LoginBox/> }
     </main>

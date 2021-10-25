@@ -17,3 +17,12 @@ body{
    column-gap: 120px;
    position: relative;
 }
+.contentSigned::before {
+    content:'';
+    height: 100vh;
+    width: 420px;
+    background: linear-gradient(100deg, #ff008e 0%, #ffcd1e 100%);    position: absolute;
+    background-size: cover;
+    right: -200px;
+    top: 0;
+}
